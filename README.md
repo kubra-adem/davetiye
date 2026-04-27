@@ -66,7 +66,7 @@ davetiye/
 ```
 Sevgili Ali,
 
-Düğün davetiyemizi senin için hazırladık:
+Davetiyemizi senin için hazırladık:
 https://kubra-adem.github.io/davetiye/sn.aliaydin
 
 Sizi aramızda görmek dileğiyle 🌸
