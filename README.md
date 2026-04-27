@@ -47,6 +47,12 @@ npx serve .
 
 Tarayıcıda `http://localhost:8000/?g=sn.aliaydin` aç.
 
+## Müzik
+
+Arka plan müziği `assets/music.mp3` dosyasındadır. Sağ üst köşedeki düğme ile başlatılıp durdurulur. Otomatik çalmaz (mobil tarayıcı kısıtı).
+
+Mevcut parça [Pixabay](https://pixabay.com/music/) üzerinden CC0 lisans ile alınmıştır — atıf zorunlu değildir, ücretsizdir. Değiştirmek için yeni MP3'ü `assets/music.mp3` olarak commit'le.
+
 ## Dosya yapısı
 
 ```

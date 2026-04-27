@@ -100,6 +100,53 @@ button { font-family: inherit; }
   .page-invite.in-view *, .page-map.in-view *, .page-welcome.in-view * { animation: none !important; }
 }
 
+/* ---------- Music toggle (top-right, fixed) ---------- */
+.music-toggle {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid #efe4d3;
+  background: rgba(255, 255, 255, 0.92);
+  color: #6e5840;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 4px 14px rgba(120, 90, 60, 0.15);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.music-toggle:hover { background: #fff; transform: scale(1.05); }
+.music-toggle:active { transform: scale(0.95); }
+.music-toggle .icon-pause { display: none; }
+.music-toggle.is-playing .icon-play { display: none; }
+.music-toggle.is-playing .icon-pause { display: inline-block; }
+
+.music-pulse {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid #d96b86;
+  opacity: 0;
+  pointer-events: none;
+}
+.music-toggle.is-playing .music-pulse {
+  animation: pulse-ring 1.8s ease-out infinite;
+}
+@keyframes pulse-ring {
+  0%   { transform: scale(0.85); opacity: 0.6; }
+  100% { transform: scale(1.25); opacity: 0; }
+}
+
+@media (max-width: 380px) {
+  .music-toggle { top: 14px; right: 14px; width: 42px; height: 42px; }
+}
+
 /* ---------- Floral corners ---------- */
 .floral {
   position: absolute;

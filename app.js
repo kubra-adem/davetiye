@@ -87,9 +87,51 @@
     pages.forEach((p) => io.observe(p));
   }
 
+  // Music toggle: shows the floating button only when the audio file is loadable.
+  function setupMusic() {
+    const audio = document.getElementById('bg-audio');
+    const btn = document.getElementById('music-toggle');
+    if (!audio || !btn) return;
+
+    audio.volume = 0.7;
+
+    let canPlay = false;
+
+    audio.addEventListener('canplaythrough', () => {
+      canPlay = true;
+      btn.hidden = false;
+    }, { once: true });
+
+    audio.addEventListener('error', () => {
+      // No music file — hide the button entirely.
+      btn.hidden = true;
+    });
+
+    btn.addEventListener('click', async () => {
+      if (!canPlay) return;
+      try {
+        if (audio.paused) {
+          await audio.play();
+          btn.classList.add('is-playing');
+          btn.setAttribute('aria-pressed', 'true');
+        } else {
+          audio.pause();
+          btn.classList.remove('is-playing');
+          btn.setAttribute('aria-pressed', 'false');
+        }
+      } catch (err) {
+        console.warn('[davetiye] audio play blocked:', err);
+      }
+    });
+
+    audio.addEventListener('play',  () => btn.classList.add('is-playing'));
+    audio.addEventListener('pause', () => btn.classList.remove('is-playing'));
+  }
+
   function start() {
     init();
     setupReveal();
+    setupMusic();
   }
 
   if (document.readyState === 'loading') {
