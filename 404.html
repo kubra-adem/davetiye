@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+  <title>Kübra &amp; Adem — Düğün Davetiyesi</title>
+  <meta name="description" content="Kübra & Adem'in düğün davetiyesine hoş geldiniz." />
+
+  <meta property="og:title" content="Kübra & Adem — Düğün Davetiyesi" />
+  <meta property="og:description" content="Bu özel günümüzde sizleri de aramızda görmekten mutluluk duyarız." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#fbf6ee" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Floral SVG defs (used as background-image via CSS, but also reusable) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="floral-cluster" viewBox="0 0 200 200">
+        <!-- Leaves -->
+        <path d="M30,150 Q60,120 90,140 Q70,160 30,150 Z" fill="#9bb87a" opacity="0.85"/>
+        <path d="M150,40 Q180,70 160,100 Q140,80 150,40 Z" fill="#9bb87a" opacity="0.85"/>
+        <path d="M40,60 Q70,40 95,65 Q75,85 40,60 Z" fill="#7da668" opacity="0.8"/>
+        <path d="M150,160 Q175,140 175,110 Q150,130 150,160 Z" fill="#7da668" opacity="0.8"/>
+        <path d="M110,40 Q130,30 145,50 Q125,60 110,40 Z" fill="#a8c98a" opacity="0.85"/>
+        <path d="M55,170 Q70,180 90,170 Q80,160 55,170 Z" fill="#a8c98a" opacity="0.8"/>
+
+        <!-- Pink rose -->
+        <g transform="translate(60,80)">
+          <circle r="22" fill="#f4b4c1" opacity="0.85"/>
+          <circle r="16" fill="#ec8fa3" opacity="0.7"/>
+          <circle r="9"  fill="#d96b86" opacity="0.7"/>
+          <circle cx="-3" cy="-2" r="4" fill="#fff" opacity="0.5"/>
+        </g>
+
+        <!-- Cream/white rose -->
+        <g transform="translate(140,130)">
+          <circle r="20" fill="#fbeee0" opacity="0.95"/>
+          <circle r="14" fill="#f3dcc0" opacity="0.9"/>
+          <circle r="7"  fill="#e6c39b" opacity="0.7"/>
+        </g>
+
+        <!-- Small pink buds -->
+        <g transform="translate(115,55)">
+          <circle r="10" fill="#f7c2cf" opacity="0.85"/>
+          <circle r="5"  fill="#ee9aae" opacity="0.7"/>
+        </g>
+        <g transform="translate(35,135)">
+          <circle r="8" fill="#f7c2cf" opacity="0.85"/>
+          <circle r="4" fill="#ee9aae" opacity="0.7"/>
+        </g>
+
+        <!-- Tiny yellow accents -->
+        <circle cx="170" cy="70"  r="3" fill="#f0c95f" opacity="0.9"/>
+        <circle cx="80"  cy="160" r="3" fill="#f0c95f" opacity="0.9"/>
+        <circle cx="105" cy="105" r="2.5" fill="#f0c95f" opacity="0.9"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <main class="card">
+
+    <!-- ============ Section 1: Welcome ============ -->
+    <section class="page page-welcome">
+      <svg class="floral floral-tl" aria-hidden="true"><use href="#floral-cluster"/></svg>
+      <svg class="floral floral-br" aria-hidden="true"><use href="#floral-cluster"/></svg>
+
+      <div class="welcome-inner">
+        <p class="eyebrow">Düğün Davetiyesi</p>
+        <h1 class="guest-name" id="guest-name">Sn. Değerli Misafirimiz</h1>
+        <p class="welcome-text">
+          Hayatımızın bu en özel gününde sizleri de aramızda görmekten<br/>
+          büyük mutluluk duyarız.
+        </p>
+        <p class="couple-mini">Kübra <span class="heart">♥</span> Adem</p>
+
+        <button class="scroll-hint" type="button" onclick="document.getElementById('section-invite').scrollIntoView({behavior:'smooth'})">
+          Davetiyeye Geç
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ============ Section 2: Invitation ============ -->
+    <section class="page page-invite" id="section-invite">
+      <svg class="floral floral-tl" aria-hidden="true"><use href="#floral-cluster"/></svg>
+      <svg class="floral floral-tr" aria-hidden="true"><use href="#floral-cluster"/></svg>
+      <svg class="floral floral-bl" aria-hidden="true"><use href="#floral-cluster"/></svg>
+      <svg class="floral floral-br" aria-hidden="true"><use href="#floral-cluster"/></svg>
+
+      <div class="invite-inner">
+        <h2 class="couple">
+          <span class="couple-line">Kübra</span>
+          <span class="couple-heart">♥</span>
+          <span class="couple-line couple-line-2">Adem</span>
+        </h2>
+
+        <p class="invite-text">
+          Bu özel günümüzde sizleri de aramızda<br/>
+          görmekten mutluluk duyarız.
+        </p>
+
+        <div class="families">
+          <div class="family">
+            <p class="family-parents">Şemsa &middot; Ziver</p>
+            <p class="family-surname">DOĞAN</p>
+          </div>
+          <div class="family">
+            <p class="family-parents">Emine &middot; Mehmet</p>
+            <p class="family-surname">ÖZCAN</p>
+          </div>
+        </div>
+
+        <div class="event">
+          <p class="event-label">Nişan / Kına</p>
+          <p class="event-date">16.05.2026</p>
+          <p class="event-day">Cumartesi &middot; 18:00</p>
+          <p class="event-venue">DARGEÇİT DÜĞÜN SALONU</p>
+          <p class="event-address">Tepebaşı Mh. Kısmetli Cd. No:109<br/>Dargeçit / Mardin</p>
+        </div>
+
+        <div class="event">
+          <p class="event-label">Nikah</p>
+          <p class="event-date">23.05.2026</p>
+          <p class="event-day">Cumartesi &middot; 14:30</p>
+          <p class="event-venue">ZÜBEYDE HANIM<br/>EVLENDİRME DAİRESİ</p>
+          <p class="event-address">Ambarlı Mh. Cumhuriyet Cd. No:2<br/>Avcılar / İstanbul</p>
+        </div>
+
+        <button class="scroll-hint" type="button" onclick="document.getElementById('section-map').scrollIntoView({behavior:'smooth'})">
+          Konumlara Geç
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ============ Section 3: Maps ============ -->
+    <section class="page page-map" id="section-map">
+      <svg class="floral floral-tl" aria-hidden="true"><use href="#floral-cluster"/></svg>
+      <svg class="floral floral-br" aria-hidden="true"><use href="#floral-cluster"/></svg>
+
+      <div class="map-inner">
+        <h2 class="map-title">Konumlar</h2>
+        <p class="map-sub">Yol tarifi için haritada açın</p>
+
+        <article class="venue-card">
+          <p class="venue-kind">Nişan / Kına</p>
+          <h3 class="venue-name">Dargeçit Düğün Salonu</h3>
+          <p class="venue-when">16.05.2026 &middot; Cumartesi 18:00</p>
+          <p class="venue-addr">Tepebaşı Mh. Kısmetli Cd. No:109<br/>Dargeçit / Mardin</p>
+          <a class="map-btn" target="_blank" rel="noopener"
+             href="https://www.google.com/maps/search/?api=1&query=Dargeçit+Düğün+Salonu+Tepebaşı+Kısmetli+Caddesi+109+Dargeçit+Mardin">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Google Maps'te Aç
+          </a>
+        </article>
+
+        <article class="venue-card">
+          <p class="venue-kind">Nikah</p>
+          <h3 class="venue-name">Zübeyde Hanım Evlendirme Dairesi</h3>
+          <p class="venue-when">23.05.2026 &middot; Cumartesi 14:30</p>
+          <p class="venue-addr">Ambarlı Mh. Cumhuriyet Cd. No:2<br/>Avcılar / İstanbul</p>
+          <a class="map-btn" target="_blank" rel="noopener"
+             href="https://www.google.com/maps/search/?api=1&query=Zübeyde+Hanım+Evlendirme+Dairesi+Ambarlı+Cumhuriyet+Caddesi+2+Avcılar+İstanbul">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Google Maps'te Aç
+          </a>
+        </article>
+
+        <p class="footer-note">Sizi aramızda görmek dileğiyle &middot; Kübra &amp; Adem</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
