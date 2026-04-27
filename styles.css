@@ -67,10 +67,11 @@ button { font-family: inherit; }
   font-weight: 500;
 }
 .guest-name {
-  font-family: 'Great Vibes', cursive;
-  font-weight: 400;
-  font-size: clamp(44px, 11vw, 64px);
-  line-height: 1.05;
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-weight: 500;
+  font-size: clamp(28px, 7vw, 38px);
+  letter-spacing: 0.5px;
+  line-height: 1.2;
   margin: 0 0 28px;
   color: #2f2a26;
 }
