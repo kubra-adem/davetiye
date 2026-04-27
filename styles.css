@@ -1,6 +1,11 @@
 /* ---------- Reset & base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  overscroll-behavior-y: contain;
+}
 body {
   font-family: 'Cormorant Garamond', 'Georgia', serif;
   color: #2f2a26;
@@ -30,9 +35,70 @@ button { font-family: inherit; }
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .page + .page { border-top: 1px solid #f1ece4; }
+
+/* ---------- Section reveal animations ---------- */
+.page > .welcome-inner,
+.page > .invite-inner,
+.page > .map-inner {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.page.in-view > .welcome-inner,
+.page.in-view > .invite-inner,
+.page.in-view > .map-inner {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Floral corners gently fade in too */
+.page .floral {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 1s ease, transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.page.in-view .floral { opacity: 0.9; transform: scale(1); }
+.page.in-view .floral-tr { opacity: 0.9; transform: scaleX(-1) scale(1); }
+.page.in-view .floral-bl { opacity: 0.9; transform: scaleY(-1) scale(1); }
+.page.in-view .floral-br { opacity: 0.9; transform: scale(-1, -1) scale(1); }
+
+/* Stagger child elements inside invitation section */
+.page-invite.in-view .couple        { animation: rise 0.9s 0.05s ease-out both; }
+.page-invite.in-view .invite-text   { animation: rise 0.9s 0.20s ease-out both; }
+.page-invite.in-view .families      { animation: rise 0.9s 0.35s ease-out both; }
+.page-invite.in-view .event:nth-of-type(1) { animation: rise 0.9s 0.50s ease-out both; }
+.page-invite.in-view .event:nth-of-type(2) { animation: rise 0.9s 0.65s ease-out both; }
+
+.page-map.in-view .map-title    { animation: rise 0.9s 0.05s ease-out both; }
+.page-map.in-view .map-sub      { animation: rise 0.9s 0.18s ease-out both; }
+.page-map.in-view .venue-card:nth-of-type(1) { animation: rise 0.9s 0.32s ease-out both; }
+.page-map.in-view .venue-card:nth-of-type(2) { animation: rise 0.9s 0.48s ease-out both; }
+.page-map.in-view .footer-note  { animation: rise 0.9s 0.62s ease-out both; }
+
+.page-welcome.in-view .eyebrow      { animation: rise 0.9s 0.05s ease-out both; }
+.page-welcome.in-view .guest-name   { animation: rise 0.9s 0.20s ease-out both; }
+.page-welcome.in-view .welcome-text { animation: rise 0.9s 0.35s ease-out both; }
+.page-welcome.in-view .couple-mini  { animation: rise 0.9s 0.50s ease-out both; }
+.page-welcome.in-view .scroll-hint  { animation: rise 0.9s 0.65s ease-out both; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .page > .welcome-inner,
+  .page > .invite-inner,
+  .page > .map-inner,
+  .page .floral { opacity: 1; transform: none; transition: none; }
+  .page-invite.in-view *, .page-map.in-view *, .page-welcome.in-view * { animation: none !important; }
+}
 
 /* ---------- Floral corners ---------- */
 .floral {

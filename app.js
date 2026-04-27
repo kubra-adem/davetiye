@@ -57,9 +57,44 @@
     }
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
+  // Reveal-on-scroll: add `.in-view` to each .page section as it enters the viewport.
+  function setupReveal() {
+    const pages = document.querySelectorAll('.page');
+    if (!pages.length) return;
+
+    // Mark the first page in-view immediately so the welcome animates on load.
+    pages[0].classList.add('in-view');
+
+    if (!('IntersectionObserver' in window)) {
+      pages.forEach((p) => p.classList.add('in-view'));
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          } else {
+            // Remove so animation replays on scroll-back.
+            entry.target.classList.remove('in-view');
+          }
+        });
+      },
+      { threshold: 0.35 }
+    );
+
+    pages.forEach((p) => io.observe(p));
+  }
+
+  function start() {
     init();
+    setupReveal();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', start);
+  } else {
+    start();
   }
 })();
