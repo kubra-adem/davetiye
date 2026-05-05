@@ -1,15 +1,25 @@
-// Personalized invitation: read slug from path or query, look up guest name.
+// Personalized invitation: read guest name from URL.
 //
-// URL formats supported:
-//   https://kubra-adem.github.io/davetiye/sn.aliaydin   (preferred — via 404.html fallback)
-//   https://kubra-adem.github.io/davetiye/?g=sn.aliaydin
+// URL formats supported (in priority order):
+//   https://kubra-adem.github.io/davetiye/sn.aliaydin?n=Ali%20Ayd%C4%B1n  ← name comes from URL (panel)
+//   https://kubra-adem.github.io/davetiye/sn.aliaydin                    ← slug → guests.json lookup
+//   https://kubra-adem.github.io/davetiye/?g=sn.aliaydin                 ← legacy query form
 //
-// guests.json maps slug -> display name.
+// `?n=` overrides everything else, so the WhatsApp panel can carry manual
+// name edits without needing guests.json updates.
 
 (function () {
   // Returns the directory portion of the current URL (always ends with /)
   function siteBase() {
     return window.location.pathname.replace(/[^/]*$/, '');
+  }
+
+  function extractDirectName() {
+    const qs = new URLSearchParams(window.location.search);
+    const n = qs.get('n');
+    if (!n) return null;
+    const trimmed = n.trim();
+    return trimmed || null;
   }
 
   function extractSlug() {
@@ -37,6 +47,14 @@
   }
 
   async function init() {
+    // 1) Direct name from URL (?n=...) takes precedence — set by the panel.
+    const directName = extractDirectName();
+    if (directName) {
+      setName('Sn. ' + directName);
+      return;
+    }
+
+    // 2) Fall back to slug → guests.json lookup.
     const slug = extractSlug();
     if (!slug) return; // keep default greeting
 
