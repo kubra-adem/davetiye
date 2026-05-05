@@ -6,3 +6,7 @@ node_modules/
 .idea/
 assets/_previews/
 picker.local.html
+panel.local.html
+vendor/
+*.local.xlsx
+*.local.csv
